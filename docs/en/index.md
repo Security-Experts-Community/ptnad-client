@@ -1,4 +1,4 @@
-![image](https://github.com/Security-Experts-Community/ptnad-client/raw/main/docs/assets/logo_with_text.svg)
+![image](../assets/logo_with_text.svg)
 
 ![PyPI](https://img.shields.io/pypi/v/ptnad-client)
 
@@ -6,7 +6,7 @@
 
 **Documentation**: <a href="https://security-experts-community.github.io/ptnad-client">https://security-experts-community.github.io/ptnad-client</a>
 
-**Source Code**: <a href="https://github.com/Security-Experts-Community/ptnad-client">https://github.com/Security-Experts-Community/ptnad-client</a>
+**Source Code**: <a href="https://github.com/Security-Experts-Community/ptnad-client">https://github.com/security-experts-community/ptnad-client</a>
 
 ---
 Python library for interacting with the PT NAD API.
@@ -105,11 +105,11 @@ You can find detailed instructions and examples here - [usage_examples](https://
 
 Want to contribute? Check out the following:
 
-- [📄 Contributor Guide](https://github.com/Security-Experts-Community/ptnad-client/blob/main/docs/en/CONTRIBUTING.md)
+- [📄 Contributor Guide](CONTRIBUTING.md)
 
 We welcome all ideas, suggestions, and improvements!
 
-![image](https://github.com/Security-Experts-Community/ptnad-client/raw/main/docs/assets/pic_left.svg)
+![image](../assets/pic_left.svg)
 
 PT NAD Client is part of an open SDK ecosystem designed to simplify integration with our products.
 Check out other related projects in the ecosystem:

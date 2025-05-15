@@ -1,10 +1,10 @@
 [project]
-name = "ptnad"
+name = "ptnad-client"
 version = "0.1.0"
 description = "Python library for interacting with the PT NAD API"
 readme = "README.md"
 license = "MIT"
-license_files = ["LICENSE"]
+license-files = ["LICENSE"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -12,11 +12,30 @@ classifiers = [
 authors = [
     { name = "Andrey Tyulenev" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "requests>=2.32.3",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-static-i18n",
+    "mkdocstrings-python",
+    "termynal"
 ]
+
+[project.urls]
+Homepage = "https://github.com/Security-Experts-Community/ptnad-client"
+Documentation = "https://security-experts-community.github.io/ptnad-client"
+Repository = "https://github.com/Security-Experts-Community/ptnad-client"
+Issues = "https://github.com/Security-Experts-Community/ptnad-client/issues"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ptnad"]
+
+[tool.hatch.envs.docs.scripts]
+serve = "mkdocs serve"
+build = "mkdocs build"
+deploy = "mkdocs gh-deploy --force"

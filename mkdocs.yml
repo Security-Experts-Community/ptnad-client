@@ -1,0 +1,109 @@
+site_name: ptnad-client
+site_description: Documentation of the ptnad-client project
+site_url: https://security-experts-community.github.io/ptnad-client
+
+repo_url: https://github.com/Security-Experts-Community/ptnad-client
+repo_name: ptnad-client
+
+docs_dir: docs
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/main_logo.svg
+  logo: assets/main_logo.svg
+  palette:
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/toggle-switch
+        name: Dark
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/toggle-switch-off
+        name: Light
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.instant
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - termynal:
+      title: bash
+      buttons: macos
+      prompt_literal_start:
+        - '$'
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["src"]
+          import:
+            - https://docs.python.org/3/objects.inv
+          options:
+            docstring_section_style: table
+            docstring_style: "numpy"
+            filters: ["!^_"]
+            heading_level: 1
+            merge_init_into_class: true
+            parameter_headings: true
+            separate_signature: true
+            show_root_heading: true
+            show_signature_annotations: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            summary: true
+            show_source: true
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: ru
+          name: Русский
+          build: true
+
+nav:
+  - Home: index.md
+  - Contributing: CONTRIBUTING.md
+  - DCO: DCO.md
+  - Code Reference: 
+    - Init: reference/index.md
+    - Auth: reference/auth.md
+    - Client: reference/client.md
+    - Exception: reference/exceptions.md
+    - API:
+      - Init: reference/api/index.md
+      - BQL: reference/api/bql.md
+      - Monitoring: reference/api/monitoring.md
+      - Replists: reference/api/replists.md
+      - Signatures: reference/api/signatures.md

@@ -133,51 +133,6 @@ class SignaturesAPI:
         response = self._get_rules_data(search, ordering, limit, offset, **filters)
         return response['results']
 
-    def get_all_rules(self, search: Optional[str] = None, ordering: Optional[str] = None,
-                      limit: int = 100, **filters) -> List[Dict[str, Any]]:
-        """
-        Get all Rules using pagination.
-
-        Args:
-            search (Optional[str]): Keyword to filter the rules.
-            ordering (Optional[str]): Field to sort the results by.
-            limit (int): Number of rules to fetch per request (default: 100).
-            **filters: Additional filters. Available filters:
-                sid: Filter by sid (can be a single value or a list)
-                sid__gte: sid greater than or equal to
-                sid__lt: sid less than
-                vendor: Filter by vendor name (can be a single value or a list)
-                enabled: Filter by enabled status (true or false)
-                has_redef: Filter by has_redef status (true or false)
-                has_exceptions: Filter by has_exceptions status (true or false)
-                priority: Filter by priority (if priority=4, finds all rules with priority>=4)
-                cls: Filter by class name (can be a single value or a list)
-                diff: Filter by rule changes, valid values (can be a list): added (+), updated (*), removed (-), unchanged (=)
-                has_error: Filter by has_error status (true or false)
-                client: Search for IP address in src_adr and dst_adr
-                server: Search for IP address in src_adr and dst_adr
-
-        Returns:
-            List[Dict[str, Any]]: A list of dictionaries containing all Rule information.
-
-        Raises:
-            PTNADAPIError: If there's an error retrieving the rules.
-        """
-        all_rules = []
-        offset = 0
-
-        while True:
-            response = self._get_rules_data(search, ordering, limit, offset, **filters)
-            rules = response['results']
-            all_rules.extend(rules)
-
-            if response['next'] is None:
-                break
-
-            offset += limit
-
-        return all_rules
-
     def get_rule(self, rule_id: int) -> Dict[str, Any]:
         """
         Get information about a specific Rule.
