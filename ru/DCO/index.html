@@ -1,0 +1,1225 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation of the ptnad-client project">
+      
+      
+      
+        <link rel="canonical" href="https://security-experts-community.github.io/ptnad-client/ru/DCO/">
+      
+      
+        <link rel="prev" href="../CONTRIBUTING/">
+      
+      
+        <link rel="next" href="../reference/">
+      
+      
+      <link rel="icon" href="../../assets/main_logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>DCO - ptnad-client</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dco" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../" title="ptnad-client" class="md-header__button md-logo" aria-label="ptnad-client" data-md-component="logo">
+      
+  <img src="../../assets/main_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ptnad-client
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DCO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../DCO/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Security-Experts-Community/ptnad-client" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ptnad-client
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="ptnad-client" class="md-nav__button md-logo" aria-label="ptnad-client" data-md-component="logo">
+      
+  <img src="../../assets/main_logo.svg" alt="logo">
+
+    </a>
+    ptnad-client
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Security-Experts-Community/ptnad-client" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ptnad-client
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DCO
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    DCO
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dco_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое DCO и зачем он нужен?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Полный текст DCO версии 1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-sign-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как подписывать коммиты (DCO Sign-off)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типовые ситуации и способы добавить подпись DCO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Типовые ситуации и способы добавить подпись DCO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dco_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Локальный коммит без подписи DCO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Коммит уже отправлен на GitHub без подписи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Несколько коммитов без подписей
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Несколько коммитов без подписей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Автоматическое добавление подписей:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерактивный rebase (ручной способ):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squashrebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подпись при использовании squash/rebase перед слиянием
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как подписать коммит, созданный через интерфейс GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проверка DCO ботом при Pull Request
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Code Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Code Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exception
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/api/bql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/api/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/api/replists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replists
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/api/signatures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signatures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dco_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что такое DCO и зачем он нужен?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Полный текст DCO версии 1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-sign-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как подписывать коммиты (DCO Sign-off)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типовые ситуации и способы добавить подпись DCO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Типовые ситуации и способы добавить подпись DCO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dco_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Локальный коммит без подписи DCO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Коммит уже отправлен на GitHub без подписи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Несколько коммитов без подписей
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Несколько коммитов без подписей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Автоматическое добавление подписей:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерактивный rebase (ручной способ):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squashrebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подпись при использовании squash/rebase перед слиянием
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как подписать коммит, созданный через интерфейс GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dco-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проверка DCO ботом при Pull Request
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dco">Сертификат разработчика об оригинальности кода (DCO)</h1>
+<h2 id="dco_1">Что такое DCO и зачем он нужен?</h2>
+<p><strong>Developer Certificate of Origin (DCO)</strong> – это упрощенная форма юридического подтверждения, используемая во многих open-source проектах вместо подписания отдельных соглашений с участниками. </p>
+<p>Добавляя подпись в коммит (sign-off), разработчик подтверждает своё авторство или законность предоставления этого кода и даёт право проекту использовать и распространять этот вклад на условиях лицензии проекта​. </p>
+<p>В отличие от Contributor License Agreement (CLA), который оформляется как отдельный документ, DCO — это утверждение, встроенное в сообщение каждого коммита. Таким образом, каждый вклад сопровождается заявлением об его происхождении и лицензии, а ответственность за легитимность кода декларирует сам контрибьютор, подписывая каждый коммит.</p>
+<hr />
+<p><strong>Как работает DCO:</strong> Разработчик указывает своё согласие с условиями DCO, добавляя специальную строку “Signed-off-by” в конец сообщения каждого коммита. Эта строка означает, что разработчик подписывает сертификат происхождения для данного изменения. </p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>⚠️ “Подписать коммит” в контексте DCO означает добавить текстовую подпись, а не цифровую  подпись GPG​.
+</span></code></pre></div>
+Многие известные проекты (например, ядро Linux, Docker, GitLab и др.) требуют DCO-подписи от всех внешних контрибьюторов как часть процесса принятия изменений. Это обеспечивает прозрачность в отношении того, кто внес код и имеет ли он право его вносить.​</p>
+<h2 id="dco-11">Полный текст DCO версии 1.1</h2>
+<p>Оригинальный источник: <a href="https://developercertificate.org/">developercertificate.org</a></p>
+<p>Ниже приведён полный текст Developer Certificate of Origin версии 1.1, переведенный на русский язык.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Сертификат разработчика (Developer Certificate of Origin)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Версия 1.1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Авторские права (C) 2004, 2006 Фонд Linux и его участники.
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Каждому разрешается копировать и распространять дословные копии этого
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>лицензионного документа, но его изменение не допускается.
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Сертификат разработчика версии 1.1
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Внося вклад в этот проект, я подтверждаю, что:
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>(a) Вклад был создан полностью или частично мной, и у меня есть право
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>предоставить его в рамках указанной в файле лицензии с открытым исходным кодом; или
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>(b) Вклад основан на предыдущей работе, которая, насколько мне известно,
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>охватывается соответствующей лицензией с открытым исходным кодом, и у меня
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>есть право в соответствии с этой лицензией предоставить эту работу с
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>изменениями, созданными полностью или частично мной, в рамках той же
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>лицензии с открытым исходным кодом (если мне не разрешено представить ее
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>по другой лицензии), как указано в файле; или
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>(c) Вклад был предоставлен мне напрямую другим лицом, которое подтвердило
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>соответствие пунктам (a), (b) или (c), и я не вносил в него изменений.
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>(d) Я понимаю и соглашаюсь с тем, что этот проект и мой вклад являются
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>общедоступными, и что запись о вкладе (включая всю персональную информацию,
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>которую я предоставляю вместе с ним, включая мою подпись) будет храниться
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>бессрочно и может быть перераспространена в соответствии с условиями
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>данного проекта или лицензиями с открытым исходным кодом, применимыми к нему.
+</span></code></pre></div>
+<p>Проект, требующий DCO, подразумевает, что все контрибьюторы соглашаются с этим текстом. Добавляя строчку “Signed-off-by” в коммит, вы подтверждаете, что выполнили условия, перечисленные в DCO, для данного вклада.</p>
+<h2 id="dco-sign-off">Как подписывать коммиты (DCO Sign-off)</h2>
+<p>Чтобы “подписать” свой коммит в рамках DCO, необходимо добавить в конец сообщения коммита строку следующего вида:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Signed-off-by: Имя Фамилия &lt;youremail@example.com&gt;
+</span></code></pre></div>
+<p>Вы можете прописать эту строку вручную при написании сообщения коммита. Однако Git предоставляет удобный флаг, который сделает это за вас. Используйте опцию <strong>-s</strong> или <strong>--signoff</strong> при создании коммита. Например:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git commit -s -m &quot;Добавил новую функцию X&quot;
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git commit -signoff -m &quot;Исправил баг в функции Y&quot;
+</span></code></pre></div>
+<p>Эта команда автоматически добавит строку “Signed-off-by” в сообщение коммита, используя имя и email из вашей конфигурации Git​.</p>
+<p>Поэтому очень важно заранее правильно настроить параметры <strong>user.name</strong> и <strong>user.email</strong> в Git. Проверьте, что <em>git config user.name</em> содержит ваше настоящее имя, а <em>git config user.email</em> – ваш email. Установить их (глобально для всех репозиториев) можно так:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git config --global user.name &quot;Имя Фамилия&quot;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git config --global user.email &quot;youremail@example.com&quot;
+</span></code></pre></div>
+<p>Эти настройки определяют, как вы будете указаны в каждом коммите (автор коммита) и соответственно используются для заполнения строки подписи​.</p>
+<p>Имя и почтовый адрес в строке “Signed-off-by” должны точно совпадать с именем и почтовым адресом автора коммита, иначе проверка DCO может не засчитать подпись​.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>⚠️ Мы ожидаем от вас реальное имя, а не никнейм
+</span></code></pre></div>
+<p>Когда Git автоматически ставит подпись через -s, он берёт именно эти настройки. Поэтому убедитесь, что email тот же самый, который привязан к вашему аккаунту GitHub, иначе бот DCO укажет на несоответствие автору.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>⚠️ Важно не путать DCO-sign-off с криптографической подписью коммита. DCO — это просто текстовая декларация в сообщении, а не криптографическая проверка. Флаг -s добавляет текст “Signed-off-by”, не выполняя никакого шифрования. В то время как флаг -S означает прикрепить к коммиту цифровую подпись GPG для подтверждения личности. DCO этого не требует​.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Если вы случайно использовали git commit -S вместо -s, учтите, что для DCO проверяется именно наличие строки в тексте коммита. Вы можете, конечно, использовать оба флага вместе (git commit -S -s), чтобы и подписать коммит цифровой подписью, и добавить DCO-подпись. Но для соблюдения DCO достаточно -s.
+</span></code></pre></div>
+<h2 id="dco_2">Типовые ситуации и способы добавить подпись DCO</h2>
+<p>Рассмотрим распространённые ситуации, связанные с отсутствием “Signed-off-by” и методами их исправления:</p>
+<h3 id="dco_3">Локальный коммит без подписи DCO</h3>
+<p><strong>Ситуация:</strong> Вы сделали один или несколько коммитов в локальном репозитории, но забыли добавить строку “Signed-off-by” в сообщение. Эти коммиты ещё не отправлены на сервер (например, Pull Request ещё не создан).</p>
+<p><strong>Решение:</strong> Самый простой способ – использовать команду amend, чтобы отредактировать последний коммит и добавить подпись, вместо создания нового коммита.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git commit --amend --signoff
+</span></code></pre></div>
+<p>или</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git commit --amend -s
+</span></code></pre></div>
+<p>Эта команда откроет ваш последний коммит для редактирования (или автоматически добавит подпись без изменения остального текста, если запустить с флагом --no-edit), и включит строку “Signed-off-by” с вашим именем и email​. </p>
+<p>Содержимое самого коммита (изменения в коде) не поменяется, изменится только сообщение. После этого у последнего коммита появится DCO-подпись.</p>
+<p>Если коммитов несколько, и подпись отсутствует в каждом - смотрите ниже про интерактивный rebase. Но если вы работаете лишь с самым последним коммитом, этого достаточно. </p>
+<p>Теперь можно проверить, добавилась ли подпись: выполните git log -1 и убедитесь, что в сообщении присутствует “Signed-off-by: …”.</p>
+<h3 id="github">Коммит уже отправлен на GitHub без подписи</h3>
+<p><strong>Ситуация:</strong> Вы уже отправили коммит(ы) на удалённый репозиторий (например, открыли Pull Request), и бот DCO сообщила об ошибке, потому что в сообщении коммита нет строки с подписью.</p>
+<p><strong>Решение:</strong> Нужно исправить историю коммитов, добавив в них подпись, и затем принудительно отправить обновлённую историю на GitHub. Для одного последнего коммита, как в предыдущем случае, можно просто воспользоваться amend:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git commit --amend --signoff
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git push --force origin &lt;название_ветки&gt;
+</span></code></pre></div>
+<p>После этого Pull Request на GitHub обновится, и проверка DCO должна пройти, поскольку сообщение коммита теперь содержит необходимую подпись. </p>
+<p>Если вы забыли поставить подпись не в самом последнем коммите, а в одном из предыдущих в ветке, придётся немного переписать историю:</p>
+<ul>
+<li>Можно выполнить интерактивный rebase (см. следующий сценарий) и отредактировать сообщение того коммита.</li>
+<li>Либо, если забыта подпись в единственном старом коммите - сделайте rebase до этого коммита и примените --signoff. Например, git rebase --signoff SHA^ (где SHA – хеш коммита без подписи) перенесёт все коммиты начиная с него, добавляя подписи.</li>
+</ul>
+<p>В общем случае, исправление одного отправленного коммита сводится к тому, чтобы его отредактировать и переписать удалённую историю коммитов.</p>
+<h3 id="_1">Несколько коммитов без подписей</h3>
+<p><strong>Ситуация:</strong> Ваш Pull Request содержит несколько коммитов, и для одного или более из них отсутствует строка “Signed-off-by”. В результате проверка DCO не проходит. Нужно подписать все эти коммиты, не потеряв их изменения. </p>
+<p><strong>Решение:</strong> Используем возможности rebase в Git, чтобы добавить подпись к каждому коммиту. Это можно сделать двумя способами - автоматически или вручную через интерактивный режим:</p>
+<h4 id="_2">Автоматическое добавление подписей:</h4>
+<p>Вы можете воспользоваться опцией --signoff у команды rebase. Она сама допишет “Signed-off-by” в каждый коммит, который ребейзится​. Например, если у вас 3 последних коммита в ветке и все они без подписи, выполните:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git rebase --signoff HEAD~3
+</span></code></pre></div></p>
+<p>Git автоматически изменит последние 3 коммита, добавляя строку подписи (с вашими именем и email из настроек) в каждый из них. После успешного завершения внесения правок вам останется отправить изменения:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git push --force origin &lt;ваша-ветка&gt;
+</span></code></pre></div></p>
+<h4 id="rebase">Интерактивный rebase (ручной способ):</h4>
+<p>Вы можете использовать интерактивный режим rebase. Допустим, у вас 3 коммита без подписи. Запустите команду с опцией <strong>-i</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git rebase -i HEAD~3
+</span></code></pre></div>
+Откроется редактор со списком этих коммитов. Замените слово pick перед каждым коммитом на reword.</p>
+<p>Закройте файл редактора, после чего Git начнёт перебор коммитов. Для каждого коммита он по очереди откроет ваш редактор для изменения сообщения. В каждом таком сообщении просто добавьте строку “Signed-off-by: …” в конец. Сохраните и выйдите. </p>
+<p>Альтернативно, вы можете выйти из редактора без изменений и выполнить команду:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git commit --amend --no-edit --signoff
+</span></code></pre></div>
+<p>Эта команда автоматически допишет подпись и закоммитит.</p>
+<p>Для перехода к следующему коммиту выполните:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git rebase --continue
+</span></code></pre></div>
+<p>Повторяйте, пока не пройдёте все перечисленные коммиты. В итоге, после добавления подписей ко всем, выполните отправку изменений в удаленный репозиторий:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git push --force origin &lt;ваша-ветка&gt;
+</span></code></pre></div>
+<p>В некоторых случаях, если коммитов очень много и исправлять вручную долго, можно выполнить squash всех коммитов в один, добавить подпись и отправить заново. </p>
+<p>Это уберёт промежуточные коммиты, но гарантированно добавит подпись хотя бы в итоговый коммит.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git rebase -i HEAD~N
+</span></code></pre></div>
+<p>В команде выше, N – число коммитов, пометьте первый коммит как <strong>pick</strong>, остальные как squash, и когда откроется редактор сообщения – впишите сообщение для коммита и добавьте “Signed-off-by”. Затем force-push.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>⚠️ Убедитесь, что такой шаг согласован с поддерживающими проект – иногда история коммитов в PR важна
+</span></code></pre></div>
+<h3 id="squashrebase">Подпись при использовании squash/rebase перед слиянием</h3>
+<p><strong>Ситуация:</strong> Вы собираетесь объединить (squash) свои коммиты или сделать rebase ветки на актуальную версию основной ветки перед слиянием, и хотите удостовериться, что после этих операций все коммиты (или итоговый коммит) имеют DCO-подпись.</p>
+<p><strong>Что необходимо учесть:</strong></p>
+<ul>
+<li>Если вы сквошите несколько коммитов, которые все уже имели sign-off, итоговый коммит может содержать несколько строк “Signed-off-by” (по одной от каждого исходного коммита). Это нормально. В DCO нет ограничения на количество подписей – важно, что хотя бы одна соответствует автору финального коммита. Часто при squash сохраняют все подписи, чтобы отразить вклад нескольких авторов, если они были.</li>
+<li>Если вы сквошите коммиты, среди которых были неподписанные, вам обязательно нужно добавить подпись в сообщении объединённого коммита. При выполнении </li>
+</ul>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git rebase -i
+</span></code></pre></div>
+  с флагом squash, Git откроет редактор для ввода сообщения. Убедитесь, что в конец этого сообщения вы включили строчку “Signed-off-by: Имя Фамилия <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>”. </p>
+<p>Можно скопировать её из одного из сообщений (если хоть где-то была) или набрать вручную.
+- При  выполнении команды</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git rebase upstream/main
+</span></code></pre></div>
+<p>ваши коммиты перезаписываются поверх свежих. Если в них уже были подписи, они сохранятся.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>💡 Проще всего – всегда добавлять опцию -s при любых коммитах, тогда и при rebase, и при squash у вас не возникнет проблем с подписью.
+</span></code></pre></div>
+<h2 id="github_1">Как подписать коммит, созданный через интерфейс GitHub</h2>
+<p>При создании коммитов через веб-интерфейс есть особенность: по умолчанию GitHub не добавляет строку “Signed-off-by:“, которая требуется для соблюдения DCO.</p>
+<p>Чтобы добавить подпись вручную, в поле описании коммита "Extended description", добавьте строку подписи в формате:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Signed-off-by: Your GitHub name &lt;youremail@example.com&gt;
+</span></code></pre></div>
+<p><img alt="image" src="../../images/github_commit_signoff.png" /></p>
+<p>Когда вы создаёте коммиты через веб-интерфейс GitHub, может автоматически использоваться приватный email, например:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>YourPrivateName@users.noreply.github.com
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>⚠️ DCO-проверка требует, чтобы email в подписи совпадал с email-ом автора коммита.
+</span></code></pre></div>
+<p>Если GitHub использует noreply email — просто подпишите коммит тем же адресом:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Signed-off-by: Your GitHub name &lt;YourPrivateName@users.noreply.github.com&gt;
+</span></code></pre></div>
+<p>Или отключите приватность email:
+- Перейдите в Settings → Emails
+- Отключите опцию "Keep my email addresses private"</p>
+<p><img alt="image" src="../../images/github_private_email_option.png" /></p>
+<h2 id="dco-pull-request">Проверка DCO ботом при Pull Request</h2>
+<p>Когда вы создаёте Pull Request в репозитории, где включён DCO, обычно подключается автоматическая проверка – часто посредством бота DCO (GitHub App) или CI. Этот бот проверяет каждый коммит в вашем PR на наличие правильной подписи. </p>
+<p>В интерфейсе GitHub вы увидите статус, например: DCO — All commits have a DCO sign-off (если всё хорошо) или сообщение об ошибке, если что-то не так. Часто DCO-проверка отмечается красным крестиком ❌ и текстом вроде “All commits must have a DCO sign-off from the author”, если найдены проблемы. </p>
+<p>Бот DCO проверяет каждое сообщение коммита на две вещи:
+1. Наличие строки “Signed-off-by:”. Если хотя бы в одном коммите её нет, проверка сразу падает.
+2. Совпадение имени и email между строкой подписи и данными автора коммита​.</p>
+<p>Например, если автор коммита – “Ivan Ivanov ivan@example.com”, то бот ожидает увидеть “Signed-off-by: Ivan Ivanov ivan@example.com”. Если там “Ivan ivan@example.com” (без фамилии) или email отличается хотя бы символом, проверка не пройдёт.</p>
+<p>Когда проверка DCO падает, бот обычно оставляет комментарий в PR с указанием на проблему. Он может указать хеш коммита и причину: “Missing Signed-off-by” или “Expected Signed-off-by: X, but got Y”. Также он подскажет, что делать – например, советует выполнить определённые команды Git для исправления. </p>
+<p>Фактически, бот вам даёт инструкцию, как привести PR в соответствие. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>⚠️ Бот не проверяет легитимность кода, не связан с CLA, он только смотрит формат сообщения коммита. Поэтому даже если у вас все тесты проходят, DCO должен быть зелёным для мерджа, иначе GitHub не даст смержить.
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.expand", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>
