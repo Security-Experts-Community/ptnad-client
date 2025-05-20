@@ -11,3 +11,6 @@ wheels/
 
 # macOS
 .DS_Store
+
+# Storage output files
+docs/data/storage_output/
