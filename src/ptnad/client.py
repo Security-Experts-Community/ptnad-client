@@ -11,6 +11,7 @@ from .api.monitoring import MonitoringAPI
 from .api.signatures import SignaturesAPI
 from .api.replists import RepListsAPI
 from .api.bql import BQLAPI
+from .api.storage import StorageAPI
 
 class PTNADClient:
     def __init__(self, base_url: str, verify_ssl: bool = True):
@@ -26,6 +27,7 @@ class PTNADClient:
         self.signatures = SignaturesAPI(self)
         self.replists = RepListsAPI(self)
         self.bql = BQLAPI(self)
+        self.storage = StorageAPI(self, "2", "12")
 
     @overload
     def set_auth(self, auth_type: Literal['local'], *, username: str, password: str) -> None:
