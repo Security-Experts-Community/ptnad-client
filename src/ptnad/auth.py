@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any, Optional
-from requests import Session
-from .exceptions import AuthenticationError
+from typing import Any
+
+from ptnad.exceptions import AuthenticationError
 
 
 class AuthStrategy(ABC):
@@ -22,7 +22,7 @@ class LocalAuth(AuthStrategy):
     def authenticate(self, client: Any) -> None:
         data = {
             "username": self.username,
-            "password": self.password
+            "password": self.password,
         }
 
         response = self._perform_login(client, data)
@@ -58,13 +58,15 @@ class SSOAuth(AuthStrategy):
         client_id: str,
         client_secret: str,
         username: str,
-        password: str
+        password: str,
+        sso_type: str | None = None
     ) -> None:
         self.sso_url = sso_url
         self.client_id = client_id
         self.client_secret = client_secret
         self.username = username
         self.password = password
+        self.sso_type = sso_type
 
     def authenticate(self, client: Any) -> None:
         auth_data = {
@@ -79,21 +81,27 @@ class SSOAuth(AuthStrategy):
             "password": self.password,
         }
 
+        # Add amr parameter if sso_type is ldap
+        if self.sso_type == "ldap":
+            auth_data["amr"] = "ldap"
+
+        response = client.session.post(
+            f"{self.sso_url}/connect/token",
+            data=auth_data,
+            verify=False
+        )
+        if response.status_code >= 400:
+            raise AuthenticationError(f"SSO Authentication failed: {str(response.text)}")
+
+        client.session.headers.update(
+            {"Authorization": f"Bearer {response.json()['access_token']}"}
+        )
+
         try:
-            response = client.session.post(
-                f"{self.sso_url}/connect/token",
-                data=auth_data,
-                verify=False
-            ).json()
-
-            client.session.headers.update(
-                {"Authorization": f"Bearer {response['access_token']}"}
-            )
-
             # Verify authentication by checking status
             client.get("monitoring/status")
         except Exception as e:
-            raise AuthenticationError(f"SSO Authentication failed: {str(e)}")
+            raise AuthenticationError(f"Failed to authenticate with SSO Token in PT NAD: {str(e)}")
 
     def deauthenticate(self, client: Any) -> None:
         try:
@@ -103,10 +111,36 @@ class SSOAuth(AuthStrategy):
             raise AuthenticationError(f"SSO Logout failed: {str(e)}")
 
 
+class ApiKeyAuth(AuthStrategy):
+    def __init__(
+        self,
+        apikey: str
+    ) -> None:
+        self.api_key = apikey
+
+    def authenticate(self, client: Any) -> None:
+        client.session.headers.update(
+            {"Authorization": f"Bearer {self.api_key}"}
+        )
+
+        try:
+            # Verify authentication by checking status
+            client.get("monitoring/status")
+        except Exception as e:
+            raise AuthenticationError(f"Failed to authenticate with API Key: {str(e)}")
+
+    def deauthenticate(self, client: Any) -> None:
+        try:
+            client.session.headers.pop("Authorization", None)
+            client.session.cookies.clear()
+        except Exception as e:
+            raise AuthenticationError(f"Logout failed: {str(e)}")
+
+
 class Auth:
     def __init__(self, client: Any) -> None:
         self.client = client
-        self.strategy: Optional[AuthStrategy] = None
+        self.strategy: AuthStrategy | None = None
 
     def set_strategy(self, strategy: AuthStrategy) -> None:
         self.strategy = strategy
