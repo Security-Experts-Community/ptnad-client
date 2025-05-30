@@ -1,11 +1,13 @@
-from typing import List, Dict, Any, Optional
-from ..exceptions import PTNADAPIError, ValidationError
+from typing import Any, Dict, List
+
+from ptnad.exceptions import PTNADAPIError
+
 
 class SignaturesAPI:
-    def __init__(self, client):
+    def __init__(self, client) -> None:
         self.client = client
 
-    def get_classes(self, search: Optional[str] = None, ordering: Optional[str] = None, **filters) -> List[Dict[str, Any]]:
+    def get_classes(self, search: str | None = None, ordering: str | None = None, **filters) -> List[Dict[str, Any]]:
         """
         Get a list of signature classes.
 
@@ -19,23 +21,24 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the classes.
+
         """
         params = {k: v for k, v in filters.items() if v is not None}
         if search:
-            params['search'] = search
+            params["search"] = search
         if ordering:
-            params['ordering'] = ordering
+            params["ordering"] = ordering
 
         try:
             response = self.client.get("/signatures/classes", params=params).json()
-            return response['results']
+            return response["results"]
         except PTNADAPIError as e:
             e.operation = "get signature classes"
             raise
         except Exception as e:
             raise PTNADAPIError(f"Failed to get signature classes: {str(e)}")
 
-    def _get_rules_data(self, search: Optional[str] = None, ordering: Optional[str] = None,
+    def _get_rules_data(self, search: str | None = None, ordering: str | None = None,
                            limit: int = 100, offset: int = 0, **filters) -> Dict[str, Any]:
         """
         Internal method to get the full response from the Signatures API.
@@ -65,15 +68,16 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the rules.
+
         """
         # Separate pagination, search and ordering parameters from filters
         url_params = {}
         if search:
-            url_params['search'] = search
+            url_params["search"] = search
         if ordering:
-            url_params['ordering'] = ordering
-        url_params['limit'] = limit
-        url_params['offset'] = offset
+            url_params["ordering"] = ordering
+        url_params["limit"] = limit
+        url_params["offset"] = offset
 
         # Extract filter parameters
         filter_params = {k: v for k, v in filters.items() if v is not None}
@@ -99,7 +103,7 @@ class SignaturesAPI:
             except Exception as e:
                 raise PTNADAPIError(f"Failed to get Rules: {str(e)}")
 
-    def get_rules(self, search: Optional[str] = None, ordering: Optional[str] = None,
+    def get_rules(self, search: str | None = None, ordering: str | None = None,
                   limit: int = 100, offset: int = 0, **filters) -> List[Dict[str, Any]]:
         """
         Get a list of Rules.
@@ -129,9 +133,10 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the rules.
+
         """
         response = self._get_rules_data(search, ordering, limit, offset, **filters)
-        return response['results']
+        return response["results"]
 
     def get_rule(self, rule_id: int) -> Dict[str, Any]:
         """
@@ -145,6 +150,7 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the rule.
+
         """
         try:
             response = self.client.get(f"/signatures/rules/{rule_id}").json()
@@ -168,6 +174,7 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error updating the rule.
+
         """
         try:
             response = self.client.patch(f"/signatures/rules/{rule_id}", json=kwargs).json()
@@ -187,6 +194,7 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the statistics.
+
         """
         try:
             response = self.client.get("/signatures/stats").json()
@@ -206,16 +214,17 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error applying the changes.
+
         """
         try:
             response = self.client.post("/signatures/commit").json()
             if "hashsum" in response:
                 return response
-            elif "fatal_error" in response or "other_errors" in response:
+            if "fatal_error" in response or "other_errors" in response:
                 errors = []
-                if "fatal_error" in response and response["fatal_error"]:
+                if response.get("fatal_error"):
                     errors.append(response["fatal_error"])
-                if "other_errors" in response and response["other_errors"]:
+                if response.get("other_errors"):
                     errors.extend(response["other_errors"])
                 raise PTNADAPIError(f"Failed to commit signature changes: {', '.join(errors)}")
             return response
@@ -231,6 +240,7 @@ class SignaturesAPI:
 
         Raises:
             PTNADAPIError: If there's an error reverting the changes.
+
         """
         try:
             self.client.post("/signatures/rollback")

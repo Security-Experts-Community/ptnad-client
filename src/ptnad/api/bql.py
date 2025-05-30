@@ -1,8 +1,10 @@
-from typing import Dict, Any, Optional
-from ..exceptions import PTNADAPIError, ValidationError
+from typing import Any, Dict
+
+from ptnad.exceptions import PTNADAPIError, ValidationError
+
 
 class BQLResponse:
-    def __init__(self, result: Any, took: int, total: int, debug: Optional[Dict[str, Any]] = None):
+    def __init__(self, result: Any, took: int, total: int, debug: Dict[str, Any] | None = None) -> None:
         self.result = result
         self.took = took
         self.total = total
@@ -19,7 +21,7 @@ class BQLResponse:
         return str(response_dict)
 
 class BQLAPI:
-    def __init__(self, client):
+    def __init__(self, client) -> None:
         self.client = client
 
     def execute(self, query: str, source: str = "2") -> Any:
@@ -35,10 +37,11 @@ class BQLAPI:
 
         Raises:
             PTNADAPIError: If there's an error executing the query.
+
         """
         try:
             response = self._send_query(query, source)
-            return response['result']
+            return response["result"]
         except PTNADAPIError as e:
             e.operation = "execute BQL query"
             raise
@@ -58,14 +61,15 @@ class BQLAPI:
 
         Raises:
             PTNADAPIError: If there's an error executing the query.
+
         """
         try:
             response = self._send_query(query, source)
             return BQLResponse(
-                result=response['result'],
-                took=response['took'],
-                total=response['total'],
-                debug=response.get('debug')
+                result=response["result"],
+                took=response["took"],
+                total=response["total"],
+                debug=response.get("debug")
             )
         except PTNADAPIError as e:
             e.operation = "execute BQL query"
@@ -86,6 +90,7 @@ class BQLAPI:
 
         Raises:
             ValidationError: If the query is invalid or the API returns an error.
+
         """
         headers = {
             "Content-Type": "text/plain",
@@ -93,13 +98,13 @@ class BQLAPI:
         }
         response = self.client.post(
             "/bql",
-            params={'source': source},
+            params={"source": source},
             data=query,
             headers=headers,
             cookies=self.client.session.cookies.get_dict()
         ).json()
 
-        if 'error' in response:
-            raise ValidationError(response['error'])
+        if "error" in response:
+            raise ValidationError(response["error"])
 
         return response

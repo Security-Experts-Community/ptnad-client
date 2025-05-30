@@ -13,6 +13,7 @@ from ptnad.api.signatures import SignaturesAPI
 from ptnad.api.sources import SourcesAPI
 from ptnad.api.sensors import SensorsAPI
 from ptnad.api.variables import VariablesAPI
+from ptnad.api.hosts import HostsAPI
 from ptnad.auth import Auth, LocalAuth, SSOAuth, ApiKeyAuth
 from ptnad.exceptions import (
     PTNADAPIError,
@@ -34,6 +35,7 @@ class PTNADClient:
         self.sources = SourcesAPI(self)
         self.sensors = SensorsAPI(self)
         self.variables = VariablesAPI(self)
+        self.hosts = HostsAPI(self)
         self.bql = BQLAPI(self)
         self.filters = FiltersAPI(self)
 

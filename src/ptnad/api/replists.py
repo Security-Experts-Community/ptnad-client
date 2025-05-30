@@ -1,12 +1,14 @@
 import re
-from typing import List, Dict, Any, Optional
-from ..exceptions import PTNADAPIError, ValidationError
+from typing import Any, Dict, List, Union
+
+from ptnad.exceptions import PTNADAPIError, ValidationError
+
 
 class RepListsAPI:
-    def __init__(self, client):
+    def __init__(self, client) -> None:
         self.client = client
 
-    def _get_lists_data(self, search: Optional[str] = None, ordering: Optional[str] = None,
+    def _get_lists_data(self, search: str | None = None, ordering: str | None = None,
                         limit: int = 100, offset: int = 0) -> Dict[str, Any]:
         """
         Internal method to get the full response from the Replists API.
@@ -22,14 +24,15 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the lists.
+
         """
         params = {}
         if search:
-            params['search'] = search
+            params["search"] = search
         if ordering:
-            params['ordering'] = ordering
-        params['limit'] = limit
-        params['offset'] = offset
+            params["ordering"] = ordering
+        params["limit"] = limit
+        params["offset"] = offset
 
         try:
             response = self.client.get("/replists", params=params).json()
@@ -40,7 +43,7 @@ class RepListsAPI:
         except Exception as e:
             raise PTNADAPIError(f"Failed to get reputation lists: {str(e)}")
 
-    def get_lists(self, search: Optional[str] = None, ordering: Optional[str] = None,
+    def get_lists(self, search: str | None = None, ordering: str | None = None,
                   limit: int = 100, offset: int = 0) -> List[Dict[str, Any]]:
         """
         Get a list of reputation lists.
@@ -56,11 +59,12 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the lists.
+
         """
         response = self._get_lists_data(search, ordering, limit, offset)
-        return response['results']
+        return response["results"]
 
-    def get_all_lists(self, search: Optional[str] = None, ordering: Optional[str] = None,
+    def get_all_lists(self, search: str | None = None, ordering: str | None = None,
                       limit: int = 100) -> List[Dict[str, Any]]:
         """
         Get all reputation lists using pagination.
@@ -75,16 +79,17 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the lists.
+
         """
         all_lists = []
         offset = 0
 
         while True:
             response = self._get_lists_data(search, ordering, limit, offset)
-            lists = response['results']
+            lists = response["results"]
             all_lists.extend(lists)
 
-            if response['next'] is None:
+            if response["next"] is None:
                 break
 
             offset += limit
@@ -98,10 +103,10 @@ class RepListsAPI:
 
         A valid slug consists of letters, numbers, underscores or hyphens.
         """
-        return bool(re.match(r'^[a-zA-Z0-9_-]+$', name))
+        return bool(re.match(r"^[a-zA-Z0-9_-]+$", name))
 
-    def create_list(self, name: str, type: str, color: str, description: Optional[str] = None,
-                    content: Optional[str] = None, external_key: Optional[str] = None) -> Dict[str, Any]:
+    def create_list(self, name: str, type: str, color: str, description: str | None = None,
+                    content: Union[str, List[str], None] = None, external_key: str | None = None) -> Dict[str, Any]:
         """
         Create a new reputation list.
 
@@ -110,7 +115,7 @@ class RepListsAPI:
             type (str): Type of the reputation list ('ip', 'dn', 'uri', or 'md5').
             color (str): Color code for the reputation list ('0' to '7').
             description (Optional[str]): Description of the reputation list.
-            content (Optional[str]): Content of the reputation list.
+            content (Optional[Union[str, List[str]]]): Content of the reputation list. Can be a string or a list of strings that will be joined with newlines.
             external_key (Optional[str]): External key for the reputation list.
 
         Returns:
@@ -119,6 +124,7 @@ class RepListsAPI:
         Raises:
             ValidationError: If the input parameters are invalid.
             PTNADAPIError: If there's an error creating the list.
+
         """
         if not self._is_valid_slug(name):
             raise ValidationError("Name must be a valid slug consisting of letters, numbers, underscores or hyphens.")
@@ -126,12 +132,16 @@ class RepListsAPI:
         data = {
             "name": name,
             "type": type,
-            "color": color
+            "color": color,
         }
         if description:
             data["description"] = description
         if content:
-            data["content"] = content
+            # Convert list of strings to newline-separated string if needed
+            if isinstance(content, list):
+                data["content"] = "\n".join(content)
+            else:
+                data["content"] = content
         if external_key:
             data["external_key"] = external_key
 
@@ -139,9 +149,8 @@ class RepListsAPI:
             response = self.client.post("/replists", json=data)
             if response.status_code == 201:
                 return response.json()
-            else:
-                error_message = response.json() if response.headers.get('Content-Type') == 'application/json' else response.text
-                raise PTNADAPIError(f"Failed to create reputation list. Status code: {response.status_code}. Error: {error_message}")
+            error_message = response.json() if response.headers.get("Content-Type") == "application/json" else response.text
+            raise PTNADAPIError(f"Failed to create reputation list. Status code: {response.status_code}. Error: {error_message}")
         except PTNADAPIError as e:
             e.operation = "create reputation list"
             raise
@@ -161,6 +170,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the list.
+
         """
         try:
             response = self.client.get(f"/replists/{list_id}").json()
@@ -184,6 +194,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error updating the list.
+
         """
         try:
             response = self.client.patch(f"/replists/{list_id}", json=kwargs).json()
@@ -203,6 +214,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error deleting the reputation list.
+
         """
         try:
             response = self.client.delete(f"/replists/{list_id}")
@@ -214,7 +226,7 @@ class RepListsAPI:
         except Exception as e:
             raise PTNADAPIError(f"Failed to delete reputation list {list_id}: {str(e)}")
 
-    def add_dynamic_list_item(self, external_key: str, value: str, attributes: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def add_dynamic_list_item(self, external_key: str, value: str, attributes: Dict[str, Any] | None = None) -> Dict[str, Any]:
         """
         Add an item to a dynamic reputation list.
 
@@ -228,13 +240,13 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error adding the item.
+
         """
         try:
             response = self.client.post(f"/replists/dynamic/{external_key}/{value}", json=attributes or {})
             if response.status_code in (200, 201):
                 return response.json()
-            else:
-                raise PTNADAPIError(f"Failed to add item to reputation list {external_key}: {response.text}")
+            raise PTNADAPIError(f"Failed to add item to reputation list {external_key}: {response.text}")
         except PTNADAPIError as e:
             e.operation = f"add item to reputation list {external_key}"
             raise
@@ -251,6 +263,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error removing the item.
+
         """
         try:
             response = self.client.delete(f"/replists/dynamic/{external_key}/{value}")
@@ -262,7 +275,7 @@ class RepListsAPI:
         except Exception as e:
             raise PTNADAPIError(f"Failed to remove item from reputation list {external_key}: {str(e)}")
 
-    def get_dynamic_list_items(self, external_key: str, ordering: Optional[str] = None) -> List[Dict[str, Any]]:
+    def get_dynamic_list_items(self, external_key: str, ordering: str | None = None) -> List[Dict[str, Any]]:
         """
         Get items from a dynamic reputation list.
 
@@ -275,14 +288,15 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the items.
+
         """
         params = {}
         if ordering:
-            params['ordering'] = ordering
+            params["ordering"] = ordering
 
         try:
             response = self.client.get(f"/replists/dynamic/{external_key}", params=params).json()
-            return response['results']
+            return response["results"]
         except PTNADAPIError as e:
             e.operation = f"get items from reputation list {external_key}"
             raise
@@ -299,6 +313,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error adding the items.
+
         """
         try:
             self.client.post(f"/replists/dynamic/{external_key}/_bulk", json=items)
@@ -318,6 +333,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error deleting the items.
+
         """
         try:
             response = self.client.post(f"/replists/dynamic/{external_key}/_delete", json=values)
@@ -338,6 +354,7 @@ class RepListsAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the statistics.
+
         """
         try:
             response = self.client.get("/replists/stats").json()
