@@ -1,16 +1,22 @@
-import requests
 import warnings
-from typing import Literal, Optional, overload
-from urllib3.exceptions import InsecureRequestWarning
+from typing import Literal, Never, overload
 from urllib.parse import urljoin
-from .exceptions import (
+
+import requests
+from urllib3.exceptions import InsecureRequestWarning
+
+from ptnad.api.bql import BQLAPI
+from ptnad.api.filters import FiltersAPI
+from ptnad.api.monitoring import MonitoringAPI
+from ptnad.api.replists import RepListsAPI
+from ptnad.api.signatures import SignaturesAPI
+from ptnad.api.sources import SourcesAPI
+from ptnad.api.sensors import SensorsAPI
+from ptnad.api.variables import VariablesAPI
+from ptnad.auth import Auth, LocalAuth, SSOAuth, ApiKeyAuth
+from ptnad.exceptions import (
     PTNADAPIError,
 )
-from .auth import Auth, LocalAuth, SSOAuth, ApiKeyAuth
-from .api.monitoring import MonitoringAPI
-from .api.signatures import SignaturesAPI
-from .api.replists import RepListsAPI
-from .api.bql import BQLAPI
 
 class PTNADClient:
     def __init__(self, base_url: str, verify_ssl: bool = True) -> None:
@@ -25,7 +31,11 @@ class PTNADClient:
         self.monitoring = MonitoringAPI(self)
         self.signatures = SignaturesAPI(self)
         self.replists = RepListsAPI(self)
+        self.sources = SourcesAPI(self)
+        self.sensors = SensorsAPI(self)
+        self.variables = VariablesAPI(self)
         self.bql = BQLAPI(self)
+        self.filters = FiltersAPI(self)
 
     @overload
     def set_auth(self, auth_type: Literal["local"], *, username: str, password: str) -> None:
