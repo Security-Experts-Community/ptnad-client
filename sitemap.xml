@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/CONTRIBUTING/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/CONTRIBUTING/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/CONTRIBUTING/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/DCO/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/DCO/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/DCO/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/auth/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/auth/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/auth/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/client/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/client/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/client/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/exceptions/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/exceptions/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/exceptions/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/api/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/api/bql/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/bql/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/bql/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/api/monitoring/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/api/replists/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/replists/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/replists/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/reference/api/signatures/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/signatures/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/signatures/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/CONTRIBUTING/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/CONTRIBUTING/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/CONTRIBUTING/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/DCO/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/DCO/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/DCO/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/auth/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/auth/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/auth/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/client/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/client/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/client/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/exceptions/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/exceptions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/exceptions/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/api/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/api/bql/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/bql/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/bql/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/api/monitoring/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/api/replists/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/replists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/replists/"/>
+    </url>
+    <url>
+        <loc>https://security-experts-community.github.io/ptnad-client/ru/reference/api/signatures/</loc>
+        <lastmod>2025-05-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://security-experts-community.github.io/ptnad-client/ru/reference/api/signatures/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://security-experts-community.github.io/ptnad-client/reference/api/signatures/"/>
+    </url>
+</urlset>

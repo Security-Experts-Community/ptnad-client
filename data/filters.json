@@ -1,0 +1,103 @@
+{
+  "filters": [
+    {
+      "category": {
+        "ru": "Протоколы",
+        "en": "Protocols"
+      },
+      "name": {
+        "ru": "Использование устаревшего протокола Telnet",
+        "en": "Usage of outdated protocol Telnet"
+      },
+      "filter": "app_proto == 'telnet'"
+    },
+    {
+      "category": {
+        "ru": "Протоколы",
+        "en": "Protocols"
+      },
+      "name": {
+        "ru": "Возможное использование SSH-туннелей",
+        "en": "Possible use of SSH tunnels"
+      },
+      "filter": "ssh.tunnel == 1"
+    },
+    {
+      "category": {
+        "ru": "Данные",
+        "en": "Data"
+      },
+      "name": {
+        "ru": "Доменные учётные данные в открытом виде",
+        "en": "Valid domain credentials in cleartext"
+      },
+      "filter": "(credentials.login ~ \"CN=*\" or credentials.login ~ \"*@*\" or credentials.login ~ \"*\\\\*\") and credentials.password and credentials.valid == 1"
+    },
+    {
+      "category": {
+        "ru": "Анонимность",
+        "en": "Anonymity"
+      },
+      "name": {
+        "ru": "соединения с TOR",
+        "en": "TOR connections"
+      },
+      "filter": "alert.msg ~ \"POLICY [PTsecurity] TOR*\" or (rpt.cat == \"tor-relays\" and rpt.where == \"flow.dst\" and app_proto == \"tls\" and (tls.server_name ~ \"www.????*.com\" and not tls.server_name ~ \"*-*\" and not tls.server_name ~ \"*0*\" and not tls.server_name ~ \"*1*\" and not tls.server_name ~ \"*8*\" and not tls.server_name ~ \"*9*\" and not tls.server_name ~ \"www.*.*.com\"))"
+    },
+    {
+      "category": {
+        "ru": "Атаки",
+        "en": "Attacks"
+      },
+      "name": {
+        "ru": "Наиболее важные алерты правил",
+        "en": "The most important signature alerts"
+      },
+      "filter": "alert.pr == 1 and alert.msg ~ \"*PTsecurity*\""
+    },
+    {
+      "category": {
+        "ru": "Атаки",
+        "en": "Attacks"
+      },
+      "name": {
+        "ru": "Соединения с наиболее опасными индикаторами компрометации",
+        "en": "Connections to the most dangerous indicators of compromise"
+      },
+      "filter": "(rpt.cat ~ \"ESC-manual-*-dns\" or rpt.cat ~ \"ESC-auto-*-dns\") and not rpt.where == \"dns\""
+    },
+    {
+      "category": {
+        "ru": "Удаленное управление",
+        "en": "Remote access"
+      },
+      "name": {
+        "ru": "Средства удаленного управления",
+        "en": "Remote Access Tools"
+      },
+      "filter": "app_service in [ \"Anydesk\", \"Teamviewer\", \"MyAssistante\", \"RMS\", \"AmmyyAdmin\", \"Screen_connect\", \"Aeroadmin\", \"Radmin\", \"RemoteAdmin\", \"RustDesk\"]"
+    },
+    {
+      "category": {
+        "ru": "Протоколы",
+        "en": "Protocols"
+      },
+      "name": {
+        "ru": "Зашифрованные SMB соединения",
+        "en": "Encrypted SMB Connections"
+      },
+      "filter": "smb.rqs.command == ENCRYPTED"
+    },
+    {
+      "category": {
+        "ru": "Мессенджеры",
+        "en": "Messengers"
+      },
+      "name": {
+        "ru": "Соединения с API Telegram",
+        "en": "Connections to Telegram API"
+      },
+      "filter": "tls.server_name == \"api.telegram.org\""
+    }
+  ]
+}
