@@ -1,6 +1,6 @@
 [project]
 name = "ptnad-client"
-version = "0.1.0"
+version = "0.2.1"
 description = "Python library for interacting with the PT NAD API"
 readme = "README.md"
 license = "MIT"

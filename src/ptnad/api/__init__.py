@@ -1,7 +1,11 @@
-from .bql import BQLAPI
-from .monitoring import MonitoringAPI
-from .replists import RepListsAPI
-from .signatures import SignaturesAPI
-from .storage import StorageAPI
+from ptnad.api.bql import BQLAPI
+from ptnad.api.monitoring import MonitoringAPI
+from ptnad.api.replists import RepListsAPI
+from ptnad.api.signatures import SignaturesAPI
+from ptnad.api.sensors import SensorsAPI
+from ptnad.api.sources import SourcesAPI
+from ptnad.api.filters import FiltersAPI
+from ptnad.api.hosts import HostsAPI
+from ptnad.api.storage import StorageAPI
 
-__all__ = ['BQLAPI', 'MonitoringAPI', 'RepListsAPI', 'SignaturesAPI', 'StorageAPI']
+__all__ = ["BQLAPI", "MonitoringAPI", "RepListsAPI", "SignaturesAPI", "SensorsAPI", "SourcesAPI", "FiltersAPI", "HostsAPI", "StorageAPI"]

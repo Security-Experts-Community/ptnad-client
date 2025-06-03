@@ -1,6 +1,8 @@
-from ..exceptions import PTNADAPIError
-from typing import List, Dict, Any, Optional
 from enum import Enum
+from typing import Any, Dict, List
+
+from ptnad.exceptions import PTNADAPIError
+
 
 class Status(str, Enum):
     UNKNOWN = "unknown"
@@ -8,7 +10,7 @@ class Status(str, Enum):
     YELLOW = "yellow"
     RED = "red"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.value
 
 class TriggerType(str, Enum):
@@ -17,21 +19,21 @@ class TriggerType(str, Enum):
     STATS = "stats"
     LICENSE = "license"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.value
 
 class Problem:
-    def __init__(self, status: str, template: str, vars: Dict[str, Any]):
+    def __init__(self, status: str, template: str, vars: Dict[str, Any]) -> None:
         self.status = Status(status)
         self.template = template
         self.vars = vars
         self.message = self.template.format(**self.vars)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.message
 
 class MonitoringStatus:
-    def __init__(self, status: str, problems: List[Dict[str, Any]]):
+    def __init__(self, status: str, problems: List[Dict[str, Any]]) -> None:
         self._status = Status(status)
         self.problems_raw = problems
         self.problems = [Problem(**prob) for prob in problems]
@@ -41,7 +43,7 @@ class MonitoringStatus:
         return str(self._status)
 
 class Trigger:
-    def __init__(self, id: str, type: str, status: str, template: str, vars: Dict[str, Any], updated: str):
+    def __init__(self, id: str, type: str, status: str, template: str, vars: Dict[str, Any], updated: str) -> None:
         self.id = id
         self.type = TriggerType(type)
         self.status = Status(status)
@@ -50,7 +52,7 @@ class Trigger:
         self.updated = updated
 
 class MonitoringAPI:
-    def __init__(self, client):
+    def __init__(self, client) -> None:
         self.client = client
 
     def get_status(self) -> MonitoringStatus:
@@ -62,6 +64,7 @@ class MonitoringAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the status.
+
         """
         try:
             response = self.client.get("/monitoring/status").json()
@@ -81,17 +84,18 @@ class MonitoringAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the triggers.
+
         """
         try:
             response = self.client.get("/monitoring/triggers").json()
-            return [Trigger(**trigger) for trigger in response.get('results', [])]
+            return [Trigger(**trigger) for trigger in response.get("results", [])]
         except PTNADAPIError as e:
             e.operation = "get triggers"
             raise
         except Exception as e:
             raise PTNADAPIError(f"Failed to get triggers: {str(e)}")
 
-    def get_trigger_by_id(self, trigger_id: str) -> Optional[Trigger]:
+    def get_trigger_by_id(self, trigger_id: str) -> Trigger | None:
         """
         Get a specific trigger by its ID.
 
@@ -103,6 +107,7 @@ class MonitoringAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the trigger.
+
         """
         triggers = self.get_triggers()
         return next((trigger for trigger in triggers if trigger.id == trigger_id), None)
@@ -116,9 +121,10 @@ class MonitoringAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the triggers.
+
         """
         triggers = self.get_triggers()
-        return [trigger for trigger in triggers if trigger.status != 'green']
+        return [trigger for trigger in triggers if trigger.status != "green"]
 
     def get_triggers_by_type(self, trigger_type: str) -> List[Trigger]:
         """
@@ -132,6 +138,7 @@ class MonitoringAPI:
 
         Raises:
             PTNADAPIError: If there's an error retrieving the triggers.
+
         """
         triggers = self.get_triggers()
         return [trigger for trigger in triggers if trigger.type == trigger_type]
