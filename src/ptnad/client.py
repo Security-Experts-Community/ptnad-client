@@ -27,7 +27,7 @@ class PTNADClient:
         self.signatures = SignaturesAPI(self)
         self.replists = RepListsAPI(self)
         self.bql = BQLAPI(self)
-        self.storage = StorageAPI(self, "2", "12")
+        self.storage = StorageAPI(self)
 
     @overload
     def set_auth(self, auth_type: Literal['local'], *, username: str, password: str) -> None:

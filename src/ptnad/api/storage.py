@@ -20,8 +20,6 @@ class StorageAPI:
     def __init__(
         self,
         client,
-        storage_idx: str,
-        persist_idx: str,
         db_file: str = "ptnad.db",
         log_file: str = "ptnad.log",
         log_level: str = "DEBUG"
@@ -30,25 +28,14 @@ class StorageAPI:
         
         Args:
             client: PTNADClient instance
-            storage_idx: Source storage index
-            persist_idx: Target storage index
             db_file: SQLite database file path
             log_file: Log file path
             log_level: Logging level
         """
         self.client = client
-        self.storage_idx = storage_idx
-        self.persist_idx = persist_idx
-        
-        repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-        self.storage_dir = os.path.join(repo_root, "docs", "data", "storage_output")
-        os.makedirs(self.storage_dir, exist_ok=True)
-        
-        self.db_file = os.path.join(self.storage_dir, db_file)
-        self.log_file = os.path.join(self.storage_dir, log_file)
-        
-        self.logger = self._setup_logger(log_level, self.log_file)
-        self._create_db()
+        self.db_file = db_file
+        self.log_file = log_file
+        self.log_level = log_level
 
     def _setup_logger(self, log_level: str, log_file: str) -> logging.Logger:
         """Setup logger with file handler."""
@@ -85,12 +72,14 @@ class StorageAPI:
     def get_flows(
         self,
         time_range: TimeRange,
+        storage_idx: str,
         nad_filter: Optional[str] = None
     ) -> List[Flow]:
         """Get flows from storage using BQL query.
         
         Args:
             time_range: Time range for query
+            storage_idx: Source storage index
             nad_filter: Optional filter to apply
             
         Returns:
@@ -105,7 +94,7 @@ class StorageAPI:
         """
         
         self.logger.debug(f"BQL Query: {query}")
-        result = self.client.bql.execute(query, source=self.storage_idx)
+        result = self.client.bql.execute(query, source=storage_idx)
         
         flows = []
         for row in result:
@@ -149,11 +138,37 @@ class StorageAPI:
     def save_flows(
         self,
         nad_filter: str,
+        persist_idx: str,
+        storage_idx: str = "2",
         delta_hours: Optional[int] = None,
         start_time: Optional[int] = None,
-        end_time: Optional[int] = None
+        end_time: Optional[int] = None,
+        storage_dir: Optional[str] = None
     ) -> None:
-        """Save flows to persistent storage."""
+        """Save flows to persistent storage.
+        
+        Args:
+            nad_filter: Filter to apply to flows
+            persist_idx: Target storage index
+            storage_idx: Source storage index
+            delta_hours: Hours to look back from current time
+            start_time: Start timestamp in milliseconds
+            end_time: End timestamp in milliseconds
+            storage_dir: Directory for storing database and logs. If None, uses current directory
+        """
+        if storage_dir is None:
+            self.storage_dir = os.path.join(os.getcwd(), "storage_output")
+        else:
+            self.storage_dir = storage_dir
+            
+        os.makedirs(self.storage_dir, exist_ok=True)
+
+        self.db_file = os.path.join(self.storage_dir, self.db_file)
+        self.log_file = os.path.join(self.storage_dir, self.log_file)
+        
+        self.logger = self._setup_logger(self.log_level, self.log_file)
+        self._create_db()
+        
         if not (delta_hours or (start_time and end_time)):
             raise ValueError(
                 "Please specify either delta_hours or both start_time and end_time"
@@ -180,7 +195,7 @@ class StorageAPI:
             f"filter='{nad_filter}'"
         )
 
-        flows = self.get_flows(time_range, nad_filter)
+        flows = self.get_flows(time_range, storage_idx, nad_filter)
         self.logger.info(f"Received {len(flows)} flows")
         
         if not flows:
@@ -190,8 +205,8 @@ class StorageAPI:
         self.logger.info("Filtering old flows")
         new_flows = self._filter_old_flows(
             flows,
-            self.storage_idx,
-            self.persist_idx
+            storage_idx,
+            persist_idx
         )
 
         self.logger.info(f"New flows to save: {len(new_flows)}")
@@ -205,13 +220,13 @@ class StorageAPI:
         
         post_data = {
             "id": flow_ids,
-            "source": [self.storage_idx],
+            "source": [storage_idx],
             "start": time_range.start,
             "end": time_range.end,
-            "target": self.persist_idx
+            "target": persist_idx
         }
         
-        self.logger.info(f"Preparing to save flows to target storage {self.persist_idx}")
+        self.logger.info(f"Preparing to save flows to target storage {persist_idx}")
         self.logger.info(f"POST data: {post_data}")
         
         try:
