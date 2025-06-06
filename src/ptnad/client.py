@@ -14,10 +14,12 @@ from ptnad.api.sources import SourcesAPI
 from ptnad.api.sensors import SensorsAPI
 from ptnad.api.variables import VariablesAPI
 from ptnad.api.hosts import HostsAPI
+from ptnad.api.storage import StorageAPI
 from ptnad.auth import Auth, LocalAuth, SSOAuth, ApiKeyAuth
 from ptnad.exceptions import (
     PTNADAPIError,
 )
+
 
 class PTNADClient:
     def __init__(self, base_url: str, verify_ssl: bool = True) -> None:
@@ -38,6 +40,7 @@ class PTNADClient:
         self.hosts = HostsAPI(self)
         self.bql = BQLAPI(self)
         self.filters = FiltersAPI(self)
+        self.storage = StorageAPI(self)
 
     @overload
     def set_auth(self, auth_type: Literal["local"], *, username: str, password: str) -> None:

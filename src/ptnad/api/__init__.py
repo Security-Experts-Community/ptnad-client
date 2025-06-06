@@ -6,5 +6,6 @@ from ptnad.api.sensors import SensorsAPI
 from ptnad.api.sources import SourcesAPI
 from ptnad.api.filters import FiltersAPI
 from ptnad.api.hosts import HostsAPI
+from ptnad.api.storage import StorageAPI
 
-__all__ = ["BQLAPI", "MonitoringAPI", "RepListsAPI", "SignaturesAPI", "SensorsAPI", "SourcesAPI", "FiltersAPI", "HostsAPI"]
+__all__ = ["BQLAPI", "MonitoringAPI", "RepListsAPI", "SignaturesAPI", "SensorsAPI", "SourcesAPI", "FiltersAPI", "HostsAPI", "StorageAPI"]
